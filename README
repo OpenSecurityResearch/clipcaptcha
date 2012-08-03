@@ -1,16 +1,11 @@
-clipcaptcha
-===========
+Author: Gursev Singh Kalra (gursev.kalra@foundstone.com - McAfee, Foundstone)
+clipcaptcha is an extensible and signature based CAPTCHA Provider impersonation tool based off Moxie Marlinspike's sslstrip codebase.
 
-A Tool for Impersonating CAPTCHA Providers
-
-**Author**: Gursev Singh Kalra (gursev.kalra@foundstone.com - McAfee, Foundstone)
-
-**clipcaptcha** is an extensible and signature based CAPTCHA Provider impersonation tool based off Moxie Marlinspike's sslstrip codebase. For additional information please visit: http://www.foundstone.com and http://blog.opensecurityresearch.com 
+For additional information please visit: http://www.foundstone.com and http://blog.opensecurityresearch.com 
 
 It requires Python 2.5 or newer, along with the 'twisted' python module.
 
-**Running clipcaptcha**:
-	
+Running clipcaptcha:
 	Run 'python clipcaptcha.py -h' for help.
 
 	The four steps to getting this working on Linux are:
@@ -54,15 +49,21 @@ It requires Python 2.5 or newer, along with the 'twisted' python module.
 	Once clipcaptcha instance starts running, all CAPTCHA validation requests will be 
 	administered by clipcaptcha.
 
-**Signature based CAPTCHA provider detection**:
+Signature based CAPTCHA provider detection:
+	All CAPTCHA providers are basically HTTP based custom web services. These services accept 
+	CAPTCHA validation requests in a particular format and respond with finite set of 
+	responses that allow the clients to make Boolean choices to allow or disallow the request. 
+	clipcaptcha takes advantage of this finite and predictable request and response data set 
+	to implement signature based request detection and response system. For additional details
+	please refer clipcaptcha whitepaper.
 
-All CAPTCHA providers are basically HTTP based custom web services. These services accept CAPTCHA validation requests in a particular format and respond with finite set of responses that allow the clients to make Boolean choices to allow or disallow the request. clipcaptcha takes advantage of this finite and predictable request and response data set to implement signature based request detection and response system. For additional details please refer clipcaptcha whitepaper. The default configuration contains signatures for reCAPTCHA, opencaptcha and captchator.
+	The default configuration contains signatures for reCAPTCHA, opencaptcha and captchator.
 
 
-	Example runs:
+Example runs:
 	clipcaptcha.py -m -p 7777 	# Run clipcaptcha in monitor mode listening on port 7777.
 
-	clipcaptcha.py -a -p 8888 	# Run clipcaptcha in avalanche mode and approve all CAPTCHAs 
+	clipcaptcha.py -a -p 8888	# Run clipcaptcha in avalanche mode and approve all CAPTCHAs 
 					# for which signatures are available) 
 
 	clipcaptcha.py -s clipcaptcha 	# Run clipcaptcha in stealth mode and approve all CAPTCHA 

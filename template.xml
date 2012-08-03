@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<clipcaptcha>
+	<provider>
+		<name>CAPTCHA Name</name>
+		<hostname>www.hostname.com</hostname>
+		<path>/verify</path>
+		<success>
+			<rcode>200</rcode>
+			<rcodestr>OK</rcodestr>
+			<rheaders>
+				<header>
+					<name>header x</name>
+					<value>value x</value>
+				</header>
+				<header>
+					<name>header y</name>
+					<value>value y</value>
+				</header>
+			</rheaders>
+			<rbody>true</rbody>
+		</success>
+		<failure>
+			<rcode>200</rcode>
+			<rcodestr>OK</rcodestr>
+			<rheaders>
+				<header>
+					<name>header 1</name>
+					<value>value 1</value>
+				</header>
+			</rheaders>
+			<rbody><![CDATA[line 1\nline 2\nline 3]]></rbody>
+		</failure>
+	</provider>
+</clipcaptcha>
+
